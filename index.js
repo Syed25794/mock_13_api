@@ -10,6 +10,8 @@ app.use(express.json());
 
 app.use("/players", playersRouters);
 
+app.use(cors());
+
 require("dotenv").config();
 
 const { LOCALHOST_PORT } = process.env || 8000;
