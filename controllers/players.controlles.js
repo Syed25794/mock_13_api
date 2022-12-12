@@ -1,4 +1,4 @@
-const Players = require("../models/Players.models");
+const Players = require("../models/players.models");
 const randomWordGenerator = require("random-words");
 
 const savePlayers = async (req, res) => {
