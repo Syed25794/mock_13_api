@@ -1,23 +1,23 @@
-const Players = require("../models/players.models");
-
+const Players = require("../models/Players.models");
 const randomWordGenerator = require("random-words");
 
 const savePlayers = async (req, res) => {
-  console.log(req.body);
+  const { name, level } = req.body;
   try {
-    const players = await Players.find({ name: req.body.name });
-    if (players) {
-      let result = await Players.updateOne({ level: req.body.level });
-      res.status(200).send({ msg: "successfully updated player level" });
+    const players = await Players.find({ name: name });
+    console.log(players, players.length, "inside");
+    if (players.length) {
+      let result = await Players.updateOne({ level: level });
+      res.status(200).send({ msg: "successfully updated player level"});
+    } else {
+      const payload = new Players({
+        name: req.body.name,
+        level: req.body.level,
+        score: 0,
+      });
+      payload.save();
+      res.status(200).send({ msg: "successfully created Players" });
     }
-    const payload = new Players({
-      name: req.body.name,
-      level: req.body.level,
-      score: req.body.score,
-    });
-    console.log(payload);
-    payload.save();
-    res.status(200).send({ msg: "successfully created Players" });
   } catch (err) {
     res.status(500).send({ msg: "something went wrong" });
   }
@@ -34,7 +34,6 @@ const generateRandomWord = async (req, res) => {
 const getAllPlayers = async (req, res) => {
   let page = null;
   page = req.params.page;
-  console.log(page);
   if (page) {
     page = req.body.page;
   }
