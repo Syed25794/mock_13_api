@@ -2,6 +2,8 @@ const express = require("express");
 
 const connection = require("./config/database");
 
+const cors = require("cors");
+
 const playersRouters = require("./routes/players.routes");
 
 const app = express();
