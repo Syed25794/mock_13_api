@@ -4,6 +4,11 @@ const randomWordGenerator = require("random-words");
 const savePlayers = async (req, res) => {
   console.log(req.body);
   try {
+    const players = await Players.find({ name: req.body.name });
+    if (players) {
+      let result = await Players.updateOne({ level: req.body.level });
+      res.status(200).send({ msg: "successfully updated player level" });
+    }
     const payload = new Players({
       name: req.body.name,
       level: req.body.level,
