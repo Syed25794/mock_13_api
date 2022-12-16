@@ -2,17 +2,13 @@ const express = require("express");
 
 const connection = require("./config/database");
 
-const JobsRouters = require("./routes/jobs.routes");
-
-const cors = require("cors");
+const playersRouters = require("./routes/players.routes");
 
 const app = express();
 
 app.use(express.json());
 
-app.use(cors());
-
-app.use("/jobs", JobsRouters);
+app.use("/players", playersRouters);
 
 require("dotenv").config();
 
