@@ -10,9 +10,9 @@ const app = express();
 
 app.use(express.json());
 
-app.use("/players", playersRouters);
-
 app.use(cors());
+
+app.use("/players", playersRouters);
 
 require("dotenv").config();
 
