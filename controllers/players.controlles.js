@@ -31,7 +31,7 @@ const generateRandomWord = async (req, res) => {
 };
 
 const getAllPlayers = async (req, res) => {
-  const { page } = req.body;
+  const { page } = req.params;
   let skips = page * 10;
   try {
     let data = await Players.find().skip(skips).limit(10).sort({ score: -1 });
