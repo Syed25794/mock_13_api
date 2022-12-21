@@ -15,6 +15,6 @@ playersRouters.get("/all/:page", getAllPlayers);
 
 playersRouters.get("/playzone",generateRandomWord);
 
-playersRouters.post("/updateScore",updatePlayersScore)
+playersRouters.post("/updateScore",updatePlayersScore);
 
 module.exports = playersRouters;
