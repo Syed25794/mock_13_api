@@ -6,8 +6,8 @@ const savePlayers = async (req, res) => {
   try {
     const players = await Players.find({ name: name });
     if (players.length) {
-      let result = await Players.updateOne({ name: name },{level:level});
-      res.status(200).send({ msg: "successfully updated player level"});
+      let result = await Players.updateOne({ name: name }, { level: level });
+      res.status(200).send({ msg: "successfully updated player level" });
     } else {
       const payload = new Players({
         name: req.body.name,
@@ -31,10 +31,8 @@ const generateRandomWord = async (req, res) => {
 };
 
 const getAllPlayers = async (req, res) => {
-  let page = null;
-  page = req.params.page;
+  const { page } = req.body;
   let skips = page * 10;
-  console.log(page,skips);
   try {
     let data = await Players.find().skip(skips).limit(10).sort({ score: -1 });
     res.status(200).send({ data: data });

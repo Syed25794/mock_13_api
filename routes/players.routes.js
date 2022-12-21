@@ -11,7 +11,7 @@ const playersRouters = Router();
 
 playersRouters.post("/create", savePlayers);
 
-playersRouters.get("/all/:page", getAllPlayers);
+playersRouters.get("/all", getAllPlayers);
 
 playersRouters.get("/playzone",generateRandomWord);
 
