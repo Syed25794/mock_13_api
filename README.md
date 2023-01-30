@@ -12,7 +12,7 @@ An API for managing and displaying player information.
 ## All API Endpoints
 
 ### Create a player
-Endpoint: `players/create`
+Endpoint: `https://mock-13-api.onrender.com/players/create`
 
 Method: `POST`
 
@@ -26,7 +26,7 @@ Request Body:
 ```
 
 ## 3 Get all players
-Endpoint: 'players/all/:page'
+Endpoint: 'https://mock-13-api.onrender.com/players/all/:page'
 
 Method: `GET`
 
@@ -37,7 +37,7 @@ Endpoint: 'players/playzone'
 Method: `GET`
 
 ### Update player score
-Endpoint: 'players/updateScore`
+Endpoint: 'https://mock-13-api.onrender.com/players/updateScore`
 
 Method: `POST`
 
